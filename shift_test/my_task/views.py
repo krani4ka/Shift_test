@@ -41,6 +41,8 @@ def index(request):
             else:
                 text = "Белых пикселей больше"
             return render(request, 'my_task/index.html', {'foo': text})
+        else:
+            print(form.errors)
     else:
         form = UploadFileForm()
     return render(request, 'my_task/index.html', {'foo': 'baz'})
