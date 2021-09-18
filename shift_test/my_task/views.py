@@ -3,15 +3,10 @@ from PIL import Image
 from .forms import UploadFileForm
 
 
-# Imaginary function to handle an uploaded file.
-# from somewhere import handle_uploaded_file
-
-
 def index(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            # handle_uploaded_file(request.FILES['file'])
             with open('name.png', 'wb+') as destination:
                 for chunk in request.FILES['file'].chunks():
                     destination.write(chunk)
@@ -21,7 +16,6 @@ def index(request):
             need_r = int(request.POST['HEX'][0:2], 16)
             need_b = int(request.POST['HEX'][2:4], 16)
             need_g = int(request.POST['HEX'][4:6], 16)
-
 
             img = Image.open('name.png')
             pixels = img.load()
@@ -40,8 +34,6 @@ def index(request):
 
                     if r == need_r and g == need_g and b == need_b:
                         hex += 1
-
-
 
             print(pix_b, pix_w)
             print(hex)
