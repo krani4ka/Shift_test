@@ -8,6 +8,11 @@
     <title>Test</title>
 </head>
 <body>
-Hi
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ foo }}
+    <input type="file" name="file">
+    <input type="submit">
+</form>
 </body>
 </html>
