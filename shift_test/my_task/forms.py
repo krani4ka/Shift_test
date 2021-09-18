@@ -2,4 +2,5 @@ from django import forms
 
 
 class UploadFileForm(forms.Form):
-    file = forms.FileField()
+    file = forms.ImageField()
+    HEX = forms.CharField()

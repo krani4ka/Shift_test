@@ -10,8 +10,9 @@
 <body>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ foo }}
-    <input type="file" name="file">
+    {{ foo }}<br>
+    <input type="file" name="file"><br>
+    <input type="text" name="HEX"><br>
     <input type="submit">
 </form>
 </body>
