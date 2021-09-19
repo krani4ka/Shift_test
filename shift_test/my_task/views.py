@@ -39,16 +39,18 @@ def index(request):
             print(hex)
 
             if pix_b > pix_w:
-                text = "Черных пикселей больше"
+                text = "Черных пикселей больше. "
             elif pix_w == pix_b:
-                text = "Черных и белых одинаковое количество"
+                text = "Черных и белых одинаковое количество. "
             else:
-                text = "Белых пикселей больше"
+                text = "Белых пикселей больше. "
             if len(request.POST['HEX']) == 6:
-                text += ' пикселей выбранного вами цвета: ' + str(hex)
+                text += ' Пикселей выбранного вами цвета: ' + str(hex)
+            else:
+                text += ' Неправильно набран HEX-код'
             return render(request, 'my_task/index.html', {'foo': text})
         else:
             print(form.errors)
     else:
         form = UploadFileForm()
-    return render(request, 'my_task/index.html', {'foo': 'baz'})
+    return render(request, 'my_task/index.html', {'foo': ''})
